@@ -1,0 +1,77 @@
+==============================
+Widget with complex type value
+==============================
+
+FlexContainer(
+  direction = horizontal,
+
+  alignment = Alignment(
+    horizontal = start,
+    vertical = center,
+  ),
+
+  border = Border(
+    size = 5,
+    radius = 10,
+  ),
+
+  spacing = Spacing(
+    top = 10,
+    bottom = 15,
+    right = 5,
+    left = 25,
+  ),
+)
+
+------------------------------
+
+(source_file
+  (node_type_definition
+    name: (identifier)
+    (constructor
+      (property_list
+        (property_definition
+          name: (identifier)
+          (literal))
+        (property_definition
+          name: (identifier)
+          (type_value_definition
+            (type_value_identifier)
+            (constructor
+              (property_list
+                (property_definition
+                  name: (identifier)
+                  (literal))
+                (property_definition
+                  name: (identifier)
+                  (literal))))))
+        (property_definition
+          name: (identifier)
+          (type_value_definition
+            (type_value_identifier)
+            (constructor
+              (property_list
+                (property_definition
+                  name: (identifier)
+                  (uint))
+                (property_definition
+                  name: (identifier)
+                  (uint))))))
+        (property_definition
+          name: (identifier)
+          (type_value_definition
+            (type_value_identifier)
+            (constructor
+              (property_list
+                (property_definition
+                  name: (identifier)
+                  (uint))
+                (property_definition
+                  name: (identifier)
+                  (uint))
+                (property_definition
+                  name: (identifier)
+                  (uint))
+                (property_definition
+                  name: (identifier)
+                  (uint))))))))))

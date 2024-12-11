@@ -1,0 +1,34 @@
+=============
+Simple widget
+=============
+
+Text(
+  kind = title,
+  wrap = false,
+  justification = center,
+  line_spacing = 4,
+  color = #443,
+)
+
+-------------
+
+(source_file
+  (node_type_definition
+    name: (identifier)
+    (constructor
+      (property_list
+        (property_definition
+          name: (identifier)
+          (literal))
+        (property_definition
+          name: (identifier)
+          (bool))
+        (property_definition
+          name: (identifier)
+          (literal))
+        (property_definition
+          name: (identifier)
+          (uint))
+        (property_definition
+          name: (identifier)
+          (color))))))

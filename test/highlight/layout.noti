@@ -1,0 +1,34 @@
+FlexContainer(
+// ^type.builtin
+//           ^punctuation.bracket
+  direction = vertical,
+  // ^variable.member
+  //          ^string
+  //                  ^punctuation.delimiter
+
+  alignment = Alignment(
+            //^type.builtin
+            //         ^punctuation.bracket
+
+  ),
+
+  border = Border(
+    size = 5,
+        // ^number
+    color = #444,
+          //^string.special
+  )
+  // line comment
+//^spell (this is also a comment)
+  /* block comment */
+//^spell
+
+) {
+//^punctuation.bracket
+  Text(
+    kint = title,
+    wrap = false,
+        // ^boolean
+  )
+
+}
