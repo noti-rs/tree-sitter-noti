@@ -8,15 +8,23 @@ module.exports = grammar({
 
   extras: $ => [' ', '\n', '\t', $.line_comment, $.block_comment],
 
+  externals: $ => [
+    $.type_value_identifier
+  ],
+
   rules: {
     source_file: $ => $.node_type_definition,
 
     node_type_definition: $ => seq(
       field("name", $.identifier),
+      $.constructor,
+      optional($.children_definition),
+    ),
+
+    constructor: $ => seq(
       '(',
       optional($.property_list),
       ')',
-      optional($.children_definition),
     ),
 
     property_list: $ => seq(
@@ -45,30 +53,25 @@ module.exports = grammar({
     identifier: $ => /[a-zA-Z][a-zA-Z_]*/,
 
     _property_value: $ => choice(
+      $.type_value_definition,
       $.bool,
       $.color,
       $.literal,
-      $.type_value_definition,
       $.uint,
     ),
 
+    type_value_definition: $ => seq(
+      $.type_value_identifier,
+      $.constructor,
+    ),
+
+    // ---- Primitives ----
     uint: $ => /\d+/,
     color: $ => /#[a-zA-Z0-9]{3,8}/,
     literal: $ => /#?[a-zA-Z0-9][a-zA-Z0-9_-]*/,
     bool: $ => token(prec(2, choice(/true/, /false/))),
 
-    // INFO: the difference between this TypeValue identifier and identifier above
-    // is additional open parenthesis. Unfortunately, the tree-sitter parser doesn't
-    // have backtracking. So it is impossible to match valid pattern in place
-    // without adding opening parenthesis at the end of RegExp.
-    type_value_identifier: $ => /[a-zA-Z][a-zA-Z_]*\s*\(/,
-
-    type_value_definition: $ => seq(
-      $.type_value_identifier,
-      optional($.property_list),
-      ')',
-    ),
-
+    // ---- Commentaries  ----
     line_comment: $ => /\/\/.*\n/,
     block_comment: $ => /\/\*(.|\n)*\*\//,
   },

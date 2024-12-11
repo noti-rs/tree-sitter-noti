@@ -18,6 +18,27 @@
           }
         },
         {
+          "type": "SYMBOL",
+          "name": "constructor"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "children_definition"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "constructor": {
+      "type": "SEQ",
+      "members": [
+        {
           "type": "STRING",
           "value": "("
         },
@@ -36,18 +57,6 @@
         {
           "type": "STRING",
           "value": ")"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "children_definition"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
         }
       ]
     },
@@ -141,6 +150,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "type_value_definition"
+        },
+        {
+          "type": "SYMBOL",
           "name": "bool"
         },
         {
@@ -153,11 +166,20 @@
         },
         {
           "type": "SYMBOL",
-          "name": "type_value_definition"
+          "name": "uint"
+        }
+      ]
+    },
+    "type_value_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "type_value_identifier"
         },
         {
           "type": "SYMBOL",
-          "name": "uint"
+          "name": "constructor"
         }
       ]
     },
@@ -193,35 +215,6 @@
         }
       }
     },
-    "type_value_identifier": {
-      "type": "PATTERN",
-      "value": "[a-zA-Z][a-zA-Z_]*\\s*\\("
-    },
-    "type_value_definition": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "type_value_identifier"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "property_list"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
     "line_comment": {
       "type": "PATTERN",
       "value": "\\/\\/.*\\n"
@@ -255,7 +248,12 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "type_value_identifier"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

@@ -3,10 +3,19 @@
 
 (property_definition name: (identifier) @variable.member)
 
+[
+ "("
+ ")"
+ "{"
+ "}"
+] @punctuation.bracket
+
+(",") @punctuation.delimiter
+
 (bool) @boolean
 (color) @string.special
 (uint) @number
 (literal) @string
 
-(line_comment) @comment
-(block_comment) @comment
+(line_comment) @comment @spell
+(block_comment) @comment @spell

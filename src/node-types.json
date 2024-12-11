@@ -15,6 +15,21 @@
     }
   },
   {
+    "type": "constructor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "property_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "node_type_definition",
     "named": true,
     "fields": {
@@ -31,14 +46,14 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "children_definition",
           "named": true
         },
         {
-          "type": "property_list",
+          "type": "constructor",
           "named": true
         }
       ]
@@ -125,7 +140,7 @@
       "required": true,
       "types": [
         {
-          "type": "property_list",
+          "type": "constructor",
           "named": true
         },
         {
