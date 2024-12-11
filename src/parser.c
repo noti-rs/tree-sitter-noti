@@ -6,7 +6,7 @@
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 #endif
 
-#define LANGUAGE_VERSION 15
+#define LANGUAGE_VERSION 14
 #define STATE_COUNT 28
 #define LARGE_STATE_COUNT 2
 #define SYMBOL_COUNT 25
@@ -1016,7 +1016,6 @@ TS_PUBLIC const TSLanguage *tree_sitter_noti(void) {
       tree_sitter_noti_external_scanner_deserialize,
     },
     .primary_state_ids = ts_primary_state_ids,
-    .name = "noti",
   };
   return &language;
 }
