@@ -1,3 +1,6 @@
+(alias_keyword) @keyword.type
+(alias_definition name: (identifier) @type.builtin)
+
 (node_type_definition name: (identifier) @type.builtin)
 (type_value_identifier) @type.builtin
 
