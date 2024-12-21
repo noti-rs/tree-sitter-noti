@@ -1,0 +1,31 @@
+==============
+Aliases
+==============
+
+alias Test = TypeValue()
+alias A = Test()
+
+FlexContainer() {
+
+}
+
+--------------
+
+(source_file
+  (alias_definitions
+    (alias_definition
+      (alias_keyword)
+      name: (identifier)
+        (type_value_definition
+          (type_value_identifier)
+          (constructor)))
+    (alias_definition
+      (alias_keyword)
+      name: (identifier)
+        (type_value_definition
+          (type_value_identifier)
+          (constructor))))
+  (node_type_definition
+    name: (identifier)
+    (constructor)
+    (children_definition)))
