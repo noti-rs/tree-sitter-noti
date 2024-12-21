@@ -54,11 +54,15 @@ static inline bool scan_type_value_identifier(TSLexer *lexer) {
     }
 
     if (!isalpha(lexer->lookahead) && lexer->lookahead != '_') {
-      return false;
+      break;
     }
 
     advance(lexer);
     identifier_len++;
+  }
+
+  if (identifier_len == 0) {
+    return false;
   }
 
   lexer->mark_end(lexer);
