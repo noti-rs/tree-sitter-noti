@@ -1,11 +1,63 @@
 {
-  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "noti",
   "word": "identifier",
   "rules": {
     "source_file": {
-      "type": "SYMBOL",
-      "name": "node_type_definition"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "alias_definitions"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "node_type_definition"
+        }
+      ]
+    },
+    "alias_definitions": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "alias_definition"
+      }
+    },
+    "alias_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "alias_keyword"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_value_definition"
+        }
+      ]
+    },
+    "alias_keyword": {
+      "type": "STRING",
+      "value": "alias"
     },
     "node_type_definition": {
       "type": "SEQ",

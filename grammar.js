@@ -13,7 +13,20 @@ module.exports = grammar({
   ],
 
   rules: {
-    source_file: $ => $.node_type_definition,
+    source_file: $ => seq(
+      optional($.alias_definitions),
+      $.node_type_definition
+    ),
+
+    alias_definitions: $ => repeat1($.alias_definition),
+    alias_definition: $ => seq(
+      $.alias_keyword,
+      field("name", $.identifier),
+      "=",
+      $.type_value_definition,
+    ),
+
+    alias_keyword: $ => "alias",
 
     node_type_definition: $ => seq(
       field("name", $.identifier),
